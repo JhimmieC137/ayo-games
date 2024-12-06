@@ -1,0 +1,46 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+}
+
+header {
+    text-align: center;
+    color: blue;
+}
+
+section.board-section {
+    margin-top: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section.board-section .board { 
+    border: solid 2px black;
+    border-radius: 2em;
+    max-width: 1200px;
+}
+
+section.board-section .board .board-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+section.board-section .board .board-grid .board-hole {
+    height: 2em;
+    width: 2em;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section.board-section .board .board-grid .board-hole .seeds {
+    cursor: pointer;
+}

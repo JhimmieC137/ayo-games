@@ -7,7 +7,7 @@ from .text_colors import *
 def display_board(current_player: Player, other_player: Player) -> None:    # Prints the state of the board
     print(f"\n\n    {'Player 1' if other_player.side == 0 else 'Player 2'}:  { YELLOW + other_player.name + ENDC } ({GREEN + str(other_player.captured) + ENDC if other_player.captured > current_player.captured else FAIL + str(other_player.captured) + ENDC})")
 
-    print('  --------------------------')
+    print('  -----------------------------------------------------')
 
     # for number in range(6, 0, -1):
     #     if number == 1:
@@ -25,7 +25,7 @@ def display_board(current_player: Player, other_player: Player) -> None:    # Pr
         else:
             print(f"{BOLD}{BLUE}{other_player.board_holes[hole]}", end='\t')
 
-    print('  |------------------------| ')
+    print('  |----------------------------------------------------| ')
 
     for hole in range(len(current_player.board_holes)):
         if hole == len(current_player.board_holes) - 1:
@@ -43,7 +43,7 @@ def display_board(current_player: Player, other_player: Player) -> None:    # Pr
     #     else:
     #         print(f"{number}", end='\t')
 
-    print('  -------------------------- ')
+    print('  ----------------------------------------------------- ')
     print(f"    {'Player 1' if current_player.side == 0 else 'Player 2'}: {YELLOW + current_player.name + ENDC} ({GREEN + str(current_player.captured) + ENDC if current_player.captured > other_player.captured else FAIL + str(current_player.captured) + ENDC})\n\n")
 
     # print([*board_one, *board_two], "\n")

@@ -1,18 +1,24 @@
-from utils.player_utils import *
-from utils.board_utils import *
+import uvicorn
+from fastapi import FastAPI, Request
+from fastapi.responses import HTMLResponse
+from fastapi.staticfiles import StaticFiles
+from fastapi.templating import Jinja2Templates
 
+app = FastAPI()
+templates = Jinja2Templates(directory="assets/templates")
 
-[player_one, player_two] = assign_players()     # Getting the two player objects
-current_player = player_one    # Player to start game
+app.mount("/static", StaticFiles(directory="assets/static"), name="static")
 
-while player_one.get_seeds() + player_two.get_seeds() > 3:  # Play game as long as 4 or more seeds in total are still in game
-    player_one.board_holes, player_two.board_holes = play_board(player_one, player_two, current_player)
+@app.get('/', response_class=HTMLResponse)
+def home(request: Request):
+    comment = "It's beginning to look a lot like Christmas"
+    board = [0 for x in range(0, 12)]
+    return templates.TemplateResponse(request=request, name="index.html" , context={"request": request, "comment": comment, "title": "Ayo game app", "board": board, "board_length": len(board)})
 
-    current_player = player_one if player_two == current_player else player_two
-
-    # Check possibility of end of game
-    if (player_one.get_seeds() == 0 or player_two.get_seeds() == 0) and not validate_end_of_play([*player_one.board_holes, *player_two.board_holes], current_player.side):
-        break
-
-
-print(get_scores(player_one, player_two))    # Print scores and winner
+if __name__ == "__main__": 
+    uvicorn.run(
+        "main:app",
+        host="0.0.0.0",
+        port=5000,
+        reload=True,
+    )
