@@ -6,6 +6,8 @@ body{
     width: 100%;
     height: 100vh;
     margin: 0;
+    background:rgb(19, 19, 19);
+    color: rgb(202, 202, 202);
 }
 
 header {
@@ -13,26 +15,39 @@ header {
     color: blue;
 }
 
-section.board-section {
+#player-one-intro,
+#player-two-intro {
+    display: none;
+}
+
+section#game-arena{
     margin-top: 2em;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.board-section {
+    margin: 2em 0;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-section.board-section .board { 
-    border: solid 2px black;
+.board-section .board { 
+    border: solid 2px rgb(172, 168, 168);
     border-radius: 2em;
     max-width: 1200px;
 }
 
-section.board-section .board .board-grid {
+.board-section .board .board-grid {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
-section.board-section .board .board-grid .board-hole {
+.board-section .board .board-grid .board-hole {
     height: 2em;
     width: 2em;
     padding: 1rem;
@@ -41,6 +56,20 @@ section.board-section .board .board-grid .board-hole {
     align-items: center;
 }
 
-section.board-section .board .board-grid .board-hole .seeds {
+.board-section .board .board-grid .board-hole .seeds {
     cursor: pointer;
+}
+
+section#messages {
+    margin: 2em auto 0 auto;
+}
+
+section#messages .warning {
+    opacity: 0;
+    color: red;
+}
+
+section#messages .info {
+    opacity: 0;
+    color: green;
 }

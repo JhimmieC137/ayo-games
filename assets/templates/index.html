@@ -3,7 +3,9 @@
     <head>
         <link rel="stylesheet" href={{ url_for('static', path='css/main.css') }}>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <meta charset="UTF-8">
+        <script src="../static/js/ayo/tools/playerTools.js"></script>
+        <script src="../static/js/ayo/tools/boardTools.js"></script>
+        <script src="../static/js/ayo/utils.js"></script>        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{{ title }}</title>
     </head>
@@ -11,71 +13,53 @@
         <header>
             <h3>The Ayo Game</h3>
         </header>
-        <section id="board" class="board-section">
-            <div class="board">
-                <div class="board-grid">
-                    <div class="board-hole">
-                        <div class="seeds">
-                            1
-                        </div>
+        <section id="player-intro" class="player-intro">
+            <form id="player-one-intro" class="player-one-intro" action="submit">
+                <div class="player-input">
+                    <label for="player-one-name" class="player-input-label">
+                        Player 1:
+                    </label>
+                    <input id="player-one-name" class="player-input-box" type="text" placeholder="Input your name">
+                </div>
+                <button type="button" class="player-one-pc-selector">Choose PC</button>
+                <button type="submit" class="intro-submit">Submit</button>
+            </form>
+            <form id="player-two-intro" class="player-two-intro" action="submit">
+                <div class="player-input">
+                    <label for="player-two-name" class="player-input-label">
+                        Player 2:
+                    </label>
+                    <input class="player-input-box" type="text" id="player-two-name" placeholder="Input your name">
+                </div>
+                <button type="button" class="player-two-pc-selector">Choose PC</button>
+                <button type="submit" class="intro-submit">Submit</button>
+            </form>
+        </section>
+        <section id="game-arena">
+            <div class="player-info">
+                <p id="player-two-name-disp">Player 1</p>
+                <p>captured seeds</p>
+            </div>
+            <div id="board" class="board-section">
+                <div class="board">
+                    <div class="board-grid">
                     </div>
-                    <div class="board-hole">
-                        <div class="seeds">
-                            1
-                        </div>
-                    </div>
-                    <div class="board-hole">
-                        <div class="seeds">
-                            1
-                        </div>
-                    </div>
-                    <div class="board-hole">
-                        <div class="seeds">
-                            1
-                        </div>
-                    </div>
-                    <div class="board-hole">
-                        <div class="seeds">
-                            1
-                        </div>
-                    </div>
-                    <div class="board-hole">
-                        <div class="seeds">
-                            1
-                        </div>
-                    </div>
-                    <div class="board-hole">
-                        <div class="seeds">
-                            1
-                        </div>
-                    </div>
-                    <div class="board-hole">
-                        <div class="seeds">
-                            1
-                        </div>
-                    </div>
-                    <div class="board-hole">
-                        <div class="seeds">
-                            1
-                        </div>
-                    </div>
-                    <div class="board-hole">
-                        <div class="seeds">
-                            1
-                        </div>
-                    </div>
-                    <div class="board-hole">
-                        <div class="seeds">
-                            1
-                        </div>
-                    </div>
-                    <div class="board-hole">
-                        <div class="seeds">
-                            1
-                        </div>
-                    </div>
+                </div>
+            </div>
+            <div class="player-info">
+                <p>captured seeds</p>
+                <p id="player-one-name-disp">Player 2</p>
             </div>
         </section>
+        <section id="messages">
+            <div class="warning">
+                <p>warning</p>
+            </div>
+            <div class="info">
+                <p>Info</p>
+            </div>
+        </section>
+
     </body>
     <script src="../static/js/main.js"></script>
 </html>

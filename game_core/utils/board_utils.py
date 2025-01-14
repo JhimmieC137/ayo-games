@@ -67,7 +67,7 @@ def validate_end_of_play(board_state: list[int], next_side: int) -> bool|int:   
     holes = get_playable_holes(side_board_state)
     compulsory_hole = None
     for hole in holes:
-        if side_board_state[(hole - 1)] > (6 - hole):    # Check for the hole at the extreme  has enough seeds to reach the other side
+        if side_board_state[(hole - 1)] > (6 - hole):    # Check that the hole at the extreme  has enough seeds to reach the other side
             compulsory_hole = hole
 
     if compulsory_hole:

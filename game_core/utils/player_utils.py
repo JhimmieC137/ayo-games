@@ -22,7 +22,8 @@ class Player:
         seed_number = 0
         for seed in self.board_holes:
             seed_number += seed
-
+            
+        # return sum(self.board_holes)
         return seed_number
 
 def validate_input(sample_type, prompt: str, nullable: bool = False):
